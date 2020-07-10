@@ -20,7 +20,7 @@ function App() {
         <Router>
           <Switch>
             <Route exact path='/etm/catalog' component={Catalog} />
-            <Route path='/etm//catalog/:id' component={ItemView} />
+            <Route path='/etm/catalog/:id' component={ItemView} />
             <Route exact path='/etm' component={Main} />
             <Route path='*' component={PageNotFound} />
           </Switch>
