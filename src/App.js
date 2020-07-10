@@ -17,7 +17,7 @@ function App() {
     <div>
       <ContextApp.Provider value={{ dispatch, state }}>
         <Header />
-        <Router>
+        <Router basename='/etm'>
           <Switch>
             <Route exact path='/catalog' component={Catalog} />
             <Route path='/catalog/:id' component={ItemView} />
