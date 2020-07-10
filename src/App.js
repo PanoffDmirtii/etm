@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useReducer } from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Catalog } from './components/Catalog';
+import { Header } from './components/Header';
+import { ItemView } from './components/ItemView';
+import { Main } from './components/Main';
+import { PageNotFound } from './components/PageNotFound';
+import './index.css';
+import { ContextApp, initialState, reducer } from './store/reducer';
+
 
 function App() {
+  const [state, dispatch] = useReducer(reducer, initialState)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ContextApp.Provider value={{ dispatch, state }}>
+        <Header />
+        <Router>
+          <Switch>
+            <Route exact path='/catalog' component={Catalog} />
+            <Route path='/catalog/:id' component={ItemView} />
+            <Route exact path='/' component={Main} />
+            <Route path='*' component={PageNotFound} />
+          </Switch>
+        </Router>
+      </ContextApp.Provider>
     </div>
   );
 }
