@@ -15,7 +15,7 @@ export const Catalog = (props) => {
   }, []);
 
   const onClickItem = (id) => {
-    history.push(`/catalog/${id}`)
+    history.push(`/etm/catalog/${id}`)
   }
 
   const renderItems = () => {
