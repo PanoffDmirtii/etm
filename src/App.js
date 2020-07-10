@@ -16,12 +16,12 @@ function App() {
   return (
     <div>
       <ContextApp.Provider value={{ dispatch, state }}>
+      <Router basename='/etm'>
         <Header />
-        <Router>
           <Switch>
-            <Route exact path='/etm/catalog' component={Catalog} />
-            <Route path='/etm/catalog/:id' component={ItemView} />
-            <Route exact path='/etm' component={Main} />
+            <Route exact path='/catalog' component={Catalog} />
+            <Route path='/catalog/:id' component={ItemView} />
+            <Route exact path='/' component={Main} />
             <Route path='*' component={PageNotFound} />
           </Switch>
         </Router>

@@ -36,3 +36,17 @@ body {
   display: flex;
   justify-content: center;
 }
+
+.link {
+  padding-right: 20px;
+}
+
+.link a {
+  color: #fff;
+  font-size: 22px;
+}
+
+.link a:hover {
+  text-decoration: none;
+  color: rgb(68, 68, 68);
+}
